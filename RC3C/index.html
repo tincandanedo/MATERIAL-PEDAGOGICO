@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>modele rc 3c</title>
+    <script type="module" crossorigin src="./assets/index-DafnX1Xx.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-CUdNIagt.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-BQ9S8nyo.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-Dc9HkKI2.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-CKsE8sC1.js">
+    <link rel="modulepreload" crossorigin href="./assets/schemas-BL-NsLlF.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-BCaOs5rp.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-oX0TOjjx.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-Cmx0b_zA.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-aFmHgJZY.js">
+    <link rel="modulepreload" crossorigin href="./assets/isArrayLikeObject-DnwgSs_Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseMerge-CQpUq7ep.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-snlMn4yk.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-B74pBk57.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-BdZUApHd.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-Ci2dTZ72.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-BxZgoFvi.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-B4K466FK.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-DXKMv4Bs.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-CrTnjj37.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-DpGPGznL.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-DB0hHKMi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-ldLVeaqm.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-BmzAqMKq.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CyYN7zJg.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-BBdeXCvU.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-restore-focus-B98SEiGc.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-BoklZTGL.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-rHn2EdoM.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-Wea4hZ6R.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-BFOBKCJB.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-C4-_TnkF.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-BplWpfFo.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-CeQt3rdW.js">
+    <link rel="modulepreload" crossorigin href="./assets/toast-KNfsFUiB.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-DR2Z2N4w.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-CzfpItSz.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-DKSBdWUf.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-BbJ1_N2T.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CrkOvbyN.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-CeE3i3Qa.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-BqUx5USx.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-Haz_uxEL.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-DsgsDslU.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-DMbg9X18.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-BDakodZ2.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-CC89xOwH.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-yTHMxhVa.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-k9DpjH68.js">
+    <link rel="modulepreload" crossorigin href="./assets/write-secret-modal-BiG2tahJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-gbN72xHe.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-BJG-7Qob.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-HclGiUj8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BczecT6V.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BTskHGpb.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-Bj3s1hGN.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-C49f7GXV.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-BPvK7C_R.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Ccyblc8N.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-B_3iMIUq.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-BHZPE0Mc.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BN-7G8qZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-DFf033uX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CiUBikfn.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-MRn68vX1.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Bviq_Dee.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DBqBVprh.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DueXZKz9.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-CJTNBbet.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-DcnXlv0_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-DucTwMkf.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-CYRiAeUx.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-CzugpTQu.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-DjNf4SIX.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-RyCOE8jo.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-BhJktFeI.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-DFhUGBjO.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-BeE1cdgM.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-B4VJJibu.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-DOPs2jx8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-VuyoeQOD.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-B_IYTCX5.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-DVgK5i5l.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-BeYhVWvM.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-D9vyuMar.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-CNPGWpMu.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Bq_nmf5u.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-D5bOh7g6.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-CLRkNgm7.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-PLkI_UfK.js">
+    <link rel="modulepreload" crossorigin href="./assets/filename-fxG7K_MU.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-D9Dr-k4J.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-YOKDWASO-CaoEAGJk.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-0PFKL3SH.css">
+    <link rel="stylesheet" crossorigin href="./assets/index--sT8xf-8.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "import marimo\n\n__generated_with = \"0.25.1\"\napp = marimo.App(width=\"medium\")\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    import numpy as np\n    import matplotlib.pyplot as plt\n\n    return mo, np, plt\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    # Mod\u00e8le RC \u00e0 trois capacit\u00e9s d'un b\u00e2timent\n\n    Le b\u00e2timent est repr\u00e9sent\u00e9 par trois n\u0153uds thermiques, chacun avec sa capacit\u00e9 :\n\n    | N\u0153ud | Temp\u00e9rature | Capacit\u00e9 | Ce qu'il repr\u00e9sente |\n    |---|---|---|---|\n    | Air int\u00e9rieur | $T_i$ | $C_i$ | air + mobilier l\u00e9ger |\n    | Masse interne | $T_m$ | $C_m$ | planchers, cloisons, dalles |\n    | Enveloppe | $T_e$ | $C_e$ | murs et toiture |\n\n    La structure suit les mod\u00e8les gris de Bacher et Madsen (2011)\u00b9 : n\u0153ud int\u00e9rieur\n    $T_i$, n\u0153ud d'enveloppe $T_e$, n\u0153ud de masse interne $T_m$, et r\u00e9sistance\n    directe $R_{ia}$ vers l'ext\u00e9rieur (fen\u00eatres + infiltration).\n\n    $$\n    \\begin{aligned}\n    C_i \\frac{dT_i}{dt} \u0026= \\frac{T_e - T_i}{R_{ie}} + \\frac{T_m - T_i}{R_{im}} + \\frac{T_a - T_i}{R_{ia}} + A_w\\,\\Phi_s + \\Phi_h \\\\[4pt]\n    C_m \\frac{dT_m}{dt} \u0026= \\frac{T_i - T_m}{R_{im}} \\\\[4pt]\n    C_e \\frac{dT_e}{dt} \u0026= \\frac{T_i - T_e}{R_{ie}} + \\frac{T_a - T_e}{R_{ea}} + A_e\\,\\Phi_s\n    \\end{aligned}\n    $$\n\n    $T_a$ : temp\u00e9rature ext\u00e9rieure \u00b7 $\\Phi_s$ : rayonnement solaire global (W/m\u00b2) \u00b7\n    $A_w$, $A_e$ : surfaces solaires effectives (m\u00b2) \u00b7 $\\Phi_h$ : puissance de chauffage (W).\n\n    \u003Csmall\u003E\u00b9 P. Bacher et H. Madsen (2011). *Identifying suitable models for the heat\n    dynamics of buildings*. Energy and Buildings, 43(7), 1511\u20131522.\n    doi:10.1016/j.enbuild.2011.02.005\u003C/small\u003E\n    \"\"\")\n    return\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    Ci = mo.ui.slider(0.5, 10, step=0.5, value=1.5, label=\"$C_i$ (MJ/K)\")\n    Cm = mo.ui.slider(1, 60, step=1, value=15, label=\"$C_m$ (MJ/K)\")\n    Ce = mo.ui.slider(5, 100, step=5, value=40, label=\"$C_e$ (MJ/K)\")\n    Rie = mo.ui.slider(0.5, 10, step=0.5, value=2, label=\"$R_{ie}$ (K/kW)\")\n    Rim = mo.ui.slider(0.2, 5, step=0.1, value=1, label=\"$R_{im}$ (K/kW)\")\n    Rea = mo.ui.slider(2, 40, step=1, value=10, label=\"$R_{ea}$ (K/kW)\")\n    Ria = mo.ui.slider(5, 100, step=5, value=20, label=\"$R_{ia}$ (K/kW)\")\n    Aw = mo.ui.slider(0, 20, step=1, value=6, label=\"$A_w$ (m\u00b2)\")\n    Ae = mo.ui.slider(0, 20, step=1, value=3, label=\"$A_e$ (m\u00b2)\")\n    Tsp = mo.ui.slider(15, 24, step=0.5, value=21, label=\"Consigne (\u00b0C)\")\n    Pmax = mo.ui.slider(0, 15, step=0.5, value=8, label=\"Chauffage max (kW)\")\n    panne = mo.ui.switch(value=False, label=\"Panne de chauffage (jour 2 \u2192 fin)\")\n\n    mo.vstack([\n        mo.md(\"### Param\u00e8tres *(valeurs illustratives)*\"),\n        mo.hstack([\n            mo.vstack([mo.md(\"**Capacit\u00e9s**\"), Ci, Cm, Ce]),\n            mo.vstack([mo.md(\"**R\u00e9sistances**\"), Rie, Rim, Rea, Ria]),\n            mo.vstack([mo.md(\"**Gains et chauffage**\"), Aw, Ae, Tsp, Pmax, panne]),\n        ], align=\"start\", wrap=True),\n    ])\n    return Ae, Aw, Ce, Ci, Cm, Pmax, Rea, Ria, Rie, Rim, Tsp, panne\n\n\n@app.cell\ndef _(np):\n    # M\u00e9t\u00e9o synth\u00e9tique : 3 jours d'hiver, pas de 60 s\n    dt = 60.0\n    t = np.arange(0, 3 * 86400, dt)\n    h = (t / 3600) % 24\n    Ta = -10 + 5 * np.sin(2 * np.pi * (h - 9) / 24)              # min ~03 h, max ~15 h\n    Phi_s = np.where((h \u003E 7) \u0026 (h \u003C 17), 400 * np.sin(np.pi * (h - 7) / 10), 0.0)\n    return Phi_s, Ta, dt, t\n\n\n@app.cell\ndef _(\n    Ae,\n    Aw,\n    Ce,\n    Ci,\n    Cm,\n    Phi_s,\n    Pmax,\n    Rea,\n    Ria,\n    Rie,\n    Rim,\n    Ta,\n    Tsp,\n    dt,\n    np,\n    panne,\n    t,\n):\n    # Conversion en SI\n    ci, cm, ce = Ci.value * 1e6, Cm.value * 1e6, Ce.value * 1e6     # J/K\n    rie, rim, rea, ria = (x.value / 1e3 for x in (Rie, Rim, Rea, Ria))  # K/W\n\n    # Stabilit\u00e9 d'Euler explicite : dt doit rester sous la plus petite constante de temps\n    tau_min = min(ci / (1 / rie + 1 / rim + 1 / ria), cm * rim, ce / (1 / rie + 1 / rea))\n    assert dt \u003C tau_min, f\"Pas de temps trop grand (tau_min = {tau_min:.0f} s)\"\n\n    n = len(t)\n    Ti, Tm, Te, Ph = (np.empty(n) for _ in range(4))\n    Ti[0] = Tm[0] = Tsp.value\n    Te[0] = (Tsp.value + Ta[0]) / 2\n    chauffe = False\n    for k in range(n - 1):\n        # Thermostat tout-ou-rien, hyst\u00e9r\u00e9sis \u00b10,5 K\n        if Ti[k] \u003C Tsp.value - 0.5:\n            chauffe = True\n        elif Ti[k] \u003E Tsp.value + 0.5:\n            chauffe = False\n        en_panne = panne.value and t[k] \u003E= 86400\n        Ph[k] = Pmax.value * 1e3 if (chauffe and not en_panne) else 0.0\n\n        dTi = ((Te[k] - Ti[k]) / rie + (Tm[k] - Ti[k]) / rim + (Ta[k] - Ti[k]) / ria\n               + Aw.value * Phi_s[k] + Ph[k]) / ci\n        dTm = (Ti[k] - Tm[k]) / rim / cm\n        dTe = ((Ti[k] - Te[k]) / rie + (Ta[k] - Te[k]) / rea + Ae.value * Phi_s[k]) / ce\n        Ti[k + 1] = Ti[k] + dt * dTi\n        Tm[k + 1] = Tm[k] + dt * dTm\n        Te[k + 1] = Te[k] + dt * dTe\n    Ph[-1] = Ph[-2]\n\n    UA = 1 / ria + 1 / (rie + rea)      # W/K, r\u00e9gime permanent\n    E_kWh = Ph.sum() * dt / 3.6e6\n    return E_kWh, Ph, Te, Ti, Tm, UA, tau_min\n\n\n@app.cell(hide_code=True)\ndef _(E_kWh, Ph, Phi_s, Ta, Te, Ti, Tm, Tsp, UA, mo, plt, t, tau_min):\n    jours = t / 86400\n    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9, 6), sharex=True,\n                                   gridspec_kw={\"height_ratios\": [3, 2]})\n    ax1.plot(jours, Ti, label=\"$T_i$ air int\u00e9rieur\", lw=2)\n    ax1.plot(jours, Tm, label=\"$T_m$ masse interne\")\n    ax1.plot(jours, Te, label=\"$T_e$ enveloppe\")\n    ax1.plot(jours, Ta, label=\"$T_a$ ext\u00e9rieur\", ls=\"--\", color=\"gray\")\n    ax1.axhline(Tsp.value, color=\"k\", lw=0.6, ls=\":\")\n    ax1.set_ylabel(\"Temp\u00e9rature (\u00b0C)\")\n    ax1.legend(loc=\"center left\", bbox_to_anchor=(1, 0.5))\n    ax1.grid(alpha=0.3)\n\n    ax2.plot(jours, Ph / 1e3, color=\"tab:red\", label=\"Chauffage $\\\\Phi_h$ (kW)\")\n    ax2.set_ylabel(\"kW\")\n    ax2b = ax2.twinx()\n    ax2b.fill_between(jours, Phi_s, color=\"gold\", alpha=0.35, label=\"Solaire $\\\\Phi_s$\")\n    ax2b.set_ylabel(\"W/m\u00b2\")\n    ax2.set_xlabel(\"Temps (jours)\")\n    ax2.grid(alpha=0.3)\n    fig.tight_layout()\n\n    mo.vstack([\n        mo.hstack([\n            mo.stat(f\"{UA:.0f} W/K\", label=\"UA \u00e9quivalent\"),\n            mo.stat(f\"{E_kWh:.0f} kWh\", label=\"Chauffage sur 3 jours\"),\n            mo.stat(f\"{tau_min / 60:.0f} min\", label=\"Plus petite constante de temps\"),\n        ], justify=\"start\"),\n        fig,\n    ])\n    return\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ### \u00c0 explorer\n    - Activez la **panne** : la vitesse de chute de $T_i$ d\u00e9pend surtout de $C_m$ et $C_e$, pas de $C_i$.\n    - Augmentez $C_m$ : les oscillations de $T_i$ s'amortissent et le chauffage cycle moins souvent.\n    - Mettez $R_{ia}$ tr\u00e8s grand : le seul chemin vers l'ext\u00e9rieur passe par l'enveloppe.\n\n    *Int\u00e9gration : Euler explicite, pas de 60 s ; la cellule v\u00e9rifie que le pas reste sous la\n    plus petite constante de temps du r\u00e9seau.*\n    \"\"\")\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.25.1%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20numpy%20as%20np%0A%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%0A%20%20%20%20return%20mo%2C%20np%2C%20plt%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Mod%C3%A8le%20RC%20%C3%A0%20trois%20capacit%C3%A9s%20d'un%20b%C3%A2timent%0A%0A%20%20%20%20Le%20b%C3%A2timent%20est%20repr%C3%A9sent%C3%A9%20par%20trois%20n%C5%93uds%20thermiques%2C%20chacun%20avec%20sa%20capacit%C3%A9%20%3A%0A%0A%20%20%20%20%7C%20N%C5%93ud%20%7C%20Temp%C3%A9rature%20%7C%20Capacit%C3%A9%20%7C%20Ce%20qu'il%20repr%C3%A9sente%20%7C%0A%20%20%20%20%7C---%7C---%7C---%7C---%7C%0A%20%20%20%20%7C%20Air%20int%C3%A9rieur%20%7C%20%24T_i%24%20%7C%20%24C_i%24%20%7C%20air%20%2B%20mobilier%20l%C3%A9ger%20%7C%0A%20%20%20%20%7C%20Masse%20interne%20%7C%20%24T_m%24%20%7C%20%24C_m%24%20%7C%20planchers%2C%20cloisons%2C%20dalles%20%7C%0A%20%20%20%20%7C%20Enveloppe%20%7C%20%24T_e%24%20%7C%20%24C_e%24%20%7C%20murs%20et%20toiture%20%7C%0A%0A%20%20%20%20La%20structure%20suit%20les%20mod%C3%A8les%20gris%20de%20Bacher%20et%20Madsen%20(2011)%C2%B9%20%3A%20n%C5%93ud%20int%C3%A9rieur%0A%20%20%20%20%24T_i%24%2C%20n%C5%93ud%20d'enveloppe%20%24T_e%24%2C%20n%C5%93ud%20de%20masse%20interne%20%24T_m%24%2C%20et%20r%C3%A9sistance%0A%20%20%20%20directe%20%24R_%7Bia%7D%24%20vers%20l'ext%C3%A9rieur%20(fen%C3%AAtres%20%2B%20infiltration).%0A%0A%20%20%20%20%24%24%0A%20%20%20%20%5Cbegin%7Baligned%7D%0A%20%20%20%20C_i%20%5Cfrac%7BdT_i%7D%7Bdt%7D%20%26%3D%20%5Cfrac%7BT_e%20-%20T_i%7D%7BR_%7Bie%7D%7D%20%2B%20%5Cfrac%7BT_m%20-%20T_i%7D%7BR_%7Bim%7D%7D%20%2B%20%5Cfrac%7BT_a%20-%20T_i%7D%7BR_%7Bia%7D%7D%20%2B%20A_w%5C%2C%5CPhi_s%20%2B%20%5CPhi_h%20%5C%5C%5B4pt%5D%0A%20%20%20%20C_m%20%5Cfrac%7BdT_m%7D%7Bdt%7D%20%26%3D%20%5Cfrac%7BT_i%20-%20T_m%7D%7BR_%7Bim%7D%7D%20%5C%5C%5B4pt%5D%0A%20%20%20%20C_e%20%5Cfrac%7BdT_e%7D%7Bdt%7D%20%26%3D%20%5Cfrac%7BT_i%20-%20T_e%7D%7BR_%7Bie%7D%7D%20%2B%20%5Cfrac%7BT_a%20-%20T_e%7D%7BR_%7Bea%7D%7D%20%2B%20A_e%5C%2C%5CPhi_s%0A%20%20%20%20%5Cend%7Baligned%7D%0A%20%20%20%20%24%24%0A%0A%20%20%20%20%24T_a%24%20%3A%20temp%C3%A9rature%20ext%C3%A9rieure%20%C2%B7%20%24%5CPhi_s%24%20%3A%20rayonnement%20solaire%20global%20(W%2Fm%C2%B2)%20%C2%B7%0A%20%20%20%20%24A_w%24%2C%20%24A_e%24%20%3A%20surfaces%20solaires%20effectives%20(m%C2%B2)%20%C2%B7%20%24%5CPhi_h%24%20%3A%20puissance%20de%20chauffage%20(W).%0A%0A%20%20%20%20%3Csmall%3E%C2%B9%20P.%20Bacher%20et%20H.%20Madsen%20(2011).%20*Identifying%20suitable%20models%20for%20the%20heat%0A%20%20%20%20dynamics%20of%20buildings*.%20Energy%20and%20Buildings%2C%2043(7)%2C%201511%E2%80%931522.%0A%20%20%20%20doi%3A10.1016%2Fj.enbuild.2011.02.005%3C%2Fsmall%3E%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20Ci%20%3D%20mo.ui.slider(0.5%2C%2010%2C%20step%3D0.5%2C%20value%3D1.5%2C%20label%3D%22%24C_i%24%20(MJ%2FK)%22)%0A%20%20%20%20Cm%20%3D%20mo.ui.slider(1%2C%2060%2C%20step%3D1%2C%20value%3D15%2C%20label%3D%22%24C_m%24%20(MJ%2FK)%22)%0A%20%20%20%20Ce%20%3D%20mo.ui.slider(5%2C%20100%2C%20step%3D5%2C%20value%3D40%2C%20label%3D%22%24C_e%24%20(MJ%2FK)%22)%0A%20%20%20%20Rie%20%3D%20mo.ui.slider(0.5%2C%2010%2C%20step%3D0.5%2C%20value%3D2%2C%20label%3D%22%24R_%7Bie%7D%24%20(K%2FkW)%22)%0A%20%20%20%20Rim%20%3D%20mo.ui.slider(0.2%2C%205%2C%20step%3D0.1%2C%20value%3D1%2C%20label%3D%22%24R_%7Bim%7D%24%20(K%2FkW)%22)%0A%20%20%20%20Rea%20%3D%20mo.ui.slider(2%2C%2040%2C%20step%3D1%2C%20value%3D10%2C%20label%3D%22%24R_%7Bea%7D%24%20(K%2FkW)%22)%0A%20%20%20%20Ria%20%3D%20mo.ui.slider(5%2C%20100%2C%20step%3D5%2C%20value%3D20%2C%20label%3D%22%24R_%7Bia%7D%24%20(K%2FkW)%22)%0A%20%20%20%20Aw%20%3D%20mo.ui.slider(0%2C%2020%2C%20step%3D1%2C%20value%3D6%2C%20label%3D%22%24A_w%24%20(m%C2%B2)%22)%0A%20%20%20%20Ae%20%3D%20mo.ui.slider(0%2C%2020%2C%20step%3D1%2C%20value%3D3%2C%20label%3D%22%24A_e%24%20(m%C2%B2)%22)%0A%20%20%20%20Tsp%20%3D%20mo.ui.slider(15%2C%2024%2C%20step%3D0.5%2C%20value%3D21%2C%20label%3D%22Consigne%20(%C2%B0C)%22)%0A%20%20%20%20Pmax%20%3D%20mo.ui.slider(0%2C%2015%2C%20step%3D0.5%2C%20value%3D8%2C%20label%3D%22Chauffage%20max%20(kW)%22)%0A%20%20%20%20panne%20%3D%20mo.ui.switch(value%3DFalse%2C%20label%3D%22Panne%20de%20chauffage%20(jour%202%20%E2%86%92%20fin)%22)%0A%0A%20%20%20%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20mo.md(%22%23%23%23%20Param%C3%A8tres%20*(valeurs%20illustratives)*%22)%2C%0A%20%20%20%20%20%20%20%20mo.hstack(%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.vstack(%5Bmo.md(%22**Capacit%C3%A9s**%22)%2C%20Ci%2C%20Cm%2C%20Ce%5D)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.vstack(%5Bmo.md(%22**R%C3%A9sistances**%22)%2C%20Rie%2C%20Rim%2C%20Rea%2C%20Ria%5D)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.vstack(%5Bmo.md(%22**Gains%20et%20chauffage**%22)%2C%20Aw%2C%20Ae%2C%20Tsp%2C%20Pmax%2C%20panne%5D)%2C%0A%20%20%20%20%20%20%20%20%5D%2C%20align%3D%22start%22%2C%20wrap%3DTrue)%2C%0A%20%20%20%20%5D)%0A%20%20%20%20return%20Ae%2C%20Aw%2C%20Ce%2C%20Ci%2C%20Cm%2C%20Pmax%2C%20Rea%2C%20Ria%2C%20Rie%2C%20Rim%2C%20Tsp%2C%20panne%0A%0A%0A%40app.cell%0Adef%20_(np)%3A%0A%20%20%20%20%23%20M%C3%A9t%C3%A9o%20synth%C3%A9tique%20%3A%203%20jours%20d'hiver%2C%20pas%20de%2060%20s%0A%20%20%20%20dt%20%3D%2060.0%0A%20%20%20%20t%20%3D%20np.arange(0%2C%203%20*%2086400%2C%20dt)%0A%20%20%20%20h%20%3D%20(t%20%2F%203600)%20%25%2024%0A%20%20%20%20Ta%20%3D%20-10%20%2B%205%20*%20np.sin(2%20*%20np.pi%20*%20(h%20-%209)%20%2F%2024)%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20min%20~03%20h%2C%20max%20~15%20h%0A%20%20%20%20Phi_s%20%3D%20np.where((h%20%3E%207)%20%26%20(h%20%3C%2017)%2C%20400%20*%20np.sin(np.pi%20*%20(h%20-%207)%20%2F%2010)%2C%200.0)%0A%20%20%20%20return%20Phi_s%2C%20Ta%2C%20dt%2C%20t%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20Ae%2C%0A%20%20%20%20Aw%2C%0A%20%20%20%20Ce%2C%0A%20%20%20%20Ci%2C%0A%20%20%20%20Cm%2C%0A%20%20%20%20Phi_s%2C%0A%20%20%20%20Pmax%2C%0A%20%20%20%20Rea%2C%0A%20%20%20%20Ria%2C%0A%20%20%20%20Rie%2C%0A%20%20%20%20Rim%2C%0A%20%20%20%20Ta%2C%0A%20%20%20%20Tsp%2C%0A%20%20%20%20dt%2C%0A%20%20%20%20np%2C%0A%20%20%20%20panne%2C%0A%20%20%20%20t%2C%0A)%3A%0A%20%20%20%20%23%20Conversion%20en%20SI%0A%20%20%20%20ci%2C%20cm%2C%20ce%20%3D%20Ci.value%20*%201e6%2C%20Cm.value%20*%201e6%2C%20Ce.value%20*%201e6%20%20%20%20%20%23%20J%2FK%0A%20%20%20%20rie%2C%20rim%2C%20rea%2C%20ria%20%3D%20(x.value%20%2F%201e3%20for%20x%20in%20(Rie%2C%20Rim%2C%20Rea%2C%20Ria))%20%20%23%20K%2FW%0A%0A%20%20%20%20%23%20Stabilit%C3%A9%20d'Euler%20explicite%20%3A%20dt%20doit%20rester%20sous%20la%20plus%20petite%20constante%20de%20temps%0A%20%20%20%20tau_min%20%3D%20min(ci%20%2F%20(1%20%2F%20rie%20%2B%201%20%2F%20rim%20%2B%201%20%2F%20ria)%2C%20cm%20*%20rim%2C%20ce%20%2F%20(1%20%2F%20rie%20%2B%201%20%2F%20rea))%0A%20%20%20%20assert%20dt%20%3C%20tau_min%2C%20f%22Pas%20de%20temps%20trop%20grand%20(tau_min%20%3D%20%7Btau_min%3A.0f%7D%20s)%22%0A%0A%20%20%20%20n%20%3D%20len(t)%0A%20%20%20%20Ti%2C%20Tm%2C%20Te%2C%20Ph%20%3D%20(np.empty(n)%20for%20_%20in%20range(4))%0A%20%20%20%20Ti%5B0%5D%20%3D%20Tm%5B0%5D%20%3D%20Tsp.value%0A%20%20%20%20Te%5B0%5D%20%3D%20(Tsp.value%20%2B%20Ta%5B0%5D)%20%2F%202%0A%20%20%20%20chauffe%20%3D%20False%0A%20%20%20%20for%20k%20in%20range(n%20-%201)%3A%0A%20%20%20%20%20%20%20%20%23%20Thermostat%20tout-ou-rien%2C%20hyst%C3%A9r%C3%A9sis%20%C2%B10%2C5%20K%0A%20%20%20%20%20%20%20%20if%20Ti%5Bk%5D%20%3C%20Tsp.value%20-%200.5%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20chauffe%20%3D%20True%0A%20%20%20%20%20%20%20%20elif%20Ti%5Bk%5D%20%3E%20Tsp.value%20%2B%200.5%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20chauffe%20%3D%20False%0A%20%20%20%20%20%20%20%20en_panne%20%3D%20panne.value%20and%20t%5Bk%5D%20%3E%3D%2086400%0A%20%20%20%20%20%20%20%20Ph%5Bk%5D%20%3D%20Pmax.value%20*%201e3%20if%20(chauffe%20and%20not%20en_panne)%20else%200.0%0A%0A%20%20%20%20%20%20%20%20dTi%20%3D%20((Te%5Bk%5D%20-%20Ti%5Bk%5D)%20%2F%20rie%20%2B%20(Tm%5Bk%5D%20-%20Ti%5Bk%5D)%20%2F%20rim%20%2B%20(Ta%5Bk%5D%20-%20Ti%5Bk%5D)%20%2F%20ria%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2B%20Aw.value%20*%20Phi_s%5Bk%5D%20%2B%20Ph%5Bk%5D)%20%2F%20ci%0A%20%20%20%20%20%20%20%20dTm%20%3D%20(Ti%5Bk%5D%20-%20Tm%5Bk%5D)%20%2F%20rim%20%2F%20cm%0A%20%20%20%20%20%20%20%20dTe%20%3D%20((Ti%5Bk%5D%20-%20Te%5Bk%5D)%20%2F%20rie%20%2B%20(Ta%5Bk%5D%20-%20Te%5Bk%5D)%20%2F%20rea%20%2B%20Ae.value%20*%20Phi_s%5Bk%5D)%20%2F%20ce%0A%20%20%20%20%20%20%20%20Ti%5Bk%20%2B%201%5D%20%3D%20Ti%5Bk%5D%20%2B%20dt%20*%20dTi%0A%20%20%20%20%20%20%20%20Tm%5Bk%20%2B%201%5D%20%3D%20Tm%5Bk%5D%20%2B%20dt%20*%20dTm%0A%20%20%20%20%20%20%20%20Te%5Bk%20%2B%201%5D%20%3D%20Te%5Bk%5D%20%2B%20dt%20*%20dTe%0A%20%20%20%20Ph%5B-1%5D%20%3D%20Ph%5B-2%5D%0A%0A%20%20%20%20UA%20%3D%201%20%2F%20ria%20%2B%201%20%2F%20(rie%20%2B%20rea)%20%20%20%20%20%20%23%20W%2FK%2C%20r%C3%A9gime%20permanent%0A%20%20%20%20E_kWh%20%3D%20Ph.sum()%20*%20dt%20%2F%203.6e6%0A%20%20%20%20return%20E_kWh%2C%20Ph%2C%20Te%2C%20Ti%2C%20Tm%2C%20UA%2C%20tau_min%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(E_kWh%2C%20Ph%2C%20Phi_s%2C%20Ta%2C%20Te%2C%20Ti%2C%20Tm%2C%20Tsp%2C%20UA%2C%20mo%2C%20plt%2C%20t%2C%20tau_min)%3A%0A%20%20%20%20jours%20%3D%20t%20%2F%2086400%0A%20%20%20%20fig%2C%20(ax1%2C%20ax2)%20%3D%20plt.subplots(2%2C%201%2C%20figsize%3D(9%2C%206)%2C%20sharex%3DTrue%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gridspec_kw%3D%7B%22height_ratios%22%3A%20%5B3%2C%202%5D%7D)%0A%20%20%20%20ax1.plot(jours%2C%20Ti%2C%20label%3D%22%24T_i%24%20air%20int%C3%A9rieur%22%2C%20lw%3D2)%0A%20%20%20%20ax1.plot(jours%2C%20Tm%2C%20label%3D%22%24T_m%24%20masse%20interne%22)%0A%20%20%20%20ax1.plot(jours%2C%20Te%2C%20label%3D%22%24T_e%24%20enveloppe%22)%0A%20%20%20%20ax1.plot(jours%2C%20Ta%2C%20label%3D%22%24T_a%24%20ext%C3%A9rieur%22%2C%20ls%3D%22--%22%2C%20color%3D%22gray%22)%0A%20%20%20%20ax1.axhline(Tsp.value%2C%20color%3D%22k%22%2C%20lw%3D0.6%2C%20ls%3D%22%3A%22)%0A%20%20%20%20ax1.set_ylabel(%22Temp%C3%A9rature%20(%C2%B0C)%22)%0A%20%20%20%20ax1.legend(loc%3D%22center%20left%22%2C%20bbox_to_anchor%3D(1%2C%200.5))%0A%20%20%20%20ax1.grid(alpha%3D0.3)%0A%0A%20%20%20%20ax2.plot(jours%2C%20Ph%20%2F%201e3%2C%20color%3D%22tab%3Ared%22%2C%20label%3D%22Chauffage%20%24%5C%5CPhi_h%24%20(kW)%22)%0A%20%20%20%20ax2.set_ylabel(%22kW%22)%0A%20%20%20%20ax2b%20%3D%20ax2.twinx()%0A%20%20%20%20ax2b.fill_between(jours%2C%20Phi_s%2C%20color%3D%22gold%22%2C%20alpha%3D0.35%2C%20label%3D%22Solaire%20%24%5C%5CPhi_s%24%22)%0A%20%20%20%20ax2b.set_ylabel(%22W%2Fm%C2%B2%22)%0A%20%20%20%20ax2.set_xlabel(%22Temps%20(jours)%22)%0A%20%20%20%20ax2.grid(alpha%3D0.3)%0A%20%20%20%20fig.tight_layout()%0A%0A%20%20%20%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20mo.hstack(%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.stat(f%22%7BUA%3A.0f%7D%20W%2FK%22%2C%20label%3D%22UA%20%C3%A9quivalent%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.stat(f%22%7BE_kWh%3A.0f%7D%20kWh%22%2C%20label%3D%22Chauffage%20sur%203%20jours%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.stat(f%22%7Btau_min%20%2F%2060%3A.0f%7D%20min%22%2C%20label%3D%22Plus%20petite%20constante%20de%20temps%22)%2C%0A%20%20%20%20%20%20%20%20%5D%2C%20justify%3D%22start%22)%2C%0A%20%20%20%20%20%20%20%20fig%2C%0A%20%20%20%20%5D)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%23%20%C3%80%20explorer%0A%20%20%20%20-%20Activez%20la%20**panne**%20%3A%20la%20vitesse%20de%20chute%20de%20%24T_i%24%20d%C3%A9pend%20surtout%20de%20%24C_m%24%20et%20%24C_e%24%2C%20pas%20de%20%24C_i%24.%0A%20%20%20%20-%20Augmentez%20%24C_m%24%20%3A%20les%20oscillations%20de%20%24T_i%24%20s'amortissent%20et%20le%20chauffage%20cycle%20moins%20souvent.%0A%20%20%20%20-%20Mettez%20%24R_%7Bia%7D%24%20tr%C3%A8s%20grand%20%3A%20le%20seul%20chemin%20vers%20l'ext%C3%A9rieur%20passe%20par%20l'enveloppe.%0A%0A%20%20%20%20*Int%C3%A9gration%20%3A%20Euler%20explicite%2C%20pas%20de%2060%20s%20%3B%20la%20cellule%20v%C3%A9rifie%20que%20le%20pas%20reste%20sous%20la%0A%20%20%20%20plus%20petite%20constante%20de%20temps%20du%20r%C3%A9seau.*%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.25.1",
+            "serverToken": "unused",
+            "config": {"ai": {"allow_provider_config": true, "custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "code_lens": true, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "dark"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "medium"},
+            "layout": null,
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>
