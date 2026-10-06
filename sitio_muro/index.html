@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>muro 3 capas</title>
+    <script type="module" crossorigin src="./assets/index-DafnX1Xx.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-CUdNIagt.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-BQ9S8nyo.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-Dc9HkKI2.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-CKsE8sC1.js">
+    <link rel="modulepreload" crossorigin href="./assets/schemas-BL-NsLlF.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-BCaOs5rp.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-oX0TOjjx.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-Cmx0b_zA.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-aFmHgJZY.js">
+    <link rel="modulepreload" crossorigin href="./assets/isArrayLikeObject-DnwgSs_Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseMerge-CQpUq7ep.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-snlMn4yk.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-B74pBk57.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-BdZUApHd.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-Ci2dTZ72.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-BxZgoFvi.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-B4K466FK.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-DXKMv4Bs.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-CrTnjj37.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-DpGPGznL.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-DB0hHKMi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-ldLVeaqm.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-BmzAqMKq.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CyYN7zJg.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-BBdeXCvU.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-restore-focus-B98SEiGc.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-BoklZTGL.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-rHn2EdoM.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-Wea4hZ6R.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-BFOBKCJB.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-C4-_TnkF.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-BplWpfFo.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-CeQt3rdW.js">
+    <link rel="modulepreload" crossorigin href="./assets/toast-KNfsFUiB.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-DR2Z2N4w.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-CzfpItSz.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-DKSBdWUf.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-BbJ1_N2T.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CrkOvbyN.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-CeE3i3Qa.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-BqUx5USx.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-Haz_uxEL.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-DsgsDslU.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-DMbg9X18.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-BDakodZ2.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-CC89xOwH.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-yTHMxhVa.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-k9DpjH68.js">
+    <link rel="modulepreload" crossorigin href="./assets/write-secret-modal-BiG2tahJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-gbN72xHe.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-BJG-7Qob.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-HclGiUj8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BczecT6V.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BTskHGpb.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-Bj3s1hGN.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-C49f7GXV.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-BPvK7C_R.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Ccyblc8N.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-B_3iMIUq.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-BHZPE0Mc.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BN-7G8qZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-DFf033uX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CiUBikfn.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-MRn68vX1.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Bviq_Dee.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DBqBVprh.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DueXZKz9.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-CJTNBbet.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-DcnXlv0_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-DucTwMkf.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-CYRiAeUx.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-CzugpTQu.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-DjNf4SIX.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-RyCOE8jo.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-BhJktFeI.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-DFhUGBjO.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-BeE1cdgM.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-B4VJJibu.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-DOPs2jx8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-VuyoeQOD.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-B_IYTCX5.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-DVgK5i5l.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-BeYhVWvM.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-D9vyuMar.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-CNPGWpMu.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Bq_nmf5u.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-D5bOh7g6.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-CLRkNgm7.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-PLkI_UfK.js">
+    <link rel="modulepreload" crossorigin href="./assets/filename-fxG7K_MU.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-D9Dr-k4J.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-YOKDWASO-CaoEAGJk.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-0PFKL3SH.css">
+    <link rel="stylesheet" crossorigin href="./assets/index--sT8xf-8.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "import marimo\n\n__generated_with = \"0.25.1\"\napp = marimo.App(width=\"medium\")\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    import matplotlib.pyplot as plt\n    from matplotlib.patches import Rectangle\n\n    return Rectangle, mo, plt\n\n\n@app.cell\ndef _(mo):\n    mo.md(r\"\"\"\n    # Conduction \u00e0 travers un mur \u00e0 trois couches\n\n    Le mur s\u00e9pare l'ext\u00e9rieur \u00e0 **\u22129 \u00b0C** de l'int\u00e9rieur \u00e0 **21 \u00b0C**\n    ($\\Delta T$ = 30 K). En r\u00e9gime permanent, le m\u00eame flux de chaleur $q$\n    traverse chaque couche. Chaque couche oppose une r\u00e9sistance thermique\n    proportionnelle \u00e0 son \u00e9paisseur $L$ et inversement proportionnelle \u00e0\n    sa conductivit\u00e9 $k$ :\n\n    $$R_i = \\frac{L_i}{k_i}, \\qquad\n      R_\\text{tot} = \\sum_i R_i, \\qquad\n      q = \\frac{\\Delta T}{R_\\text{tot}} = U\\,\\Delta T$$\n\n    La chute de temp\u00e9rature dans chaque couche est $\\Delta T_i = q\\,R_i$ :\n    **la couche la plus r\u00e9sistante \u00ab prend \u00bb la plus grande part de l'\u00e9cart\n    de temp\u00e9rature.**\n\n    Modifiez l'\u00e9paisseur (curseur) et la conductivit\u00e9 (case) de chaque couche.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(mo):\n    # Valeurs par d\u00e9faut : brique, isolant, gypse\n    noms = [\"Couche 1 (ext.)\", \"Couche 2\", \"Couche 3 (int.)\"]\n    e_def = [90, 140, 13]          # mm\n    k_def = [0.72, 0.040, 0.16]    # W/(m\u00b7K)\n\n    epaisseurs = mo.ui.array(\n        [mo.ui.slider(1, 300, step=1, value=v, show_value=True, label=\"\u00c9paisseur (mm)\")\n         for v in e_def]\n    )\n    conductivites = mo.ui.array(\n        [mo.ui.number(start=0.005, stop=400, step=0.001, value=v, label=\"k (W/m\u00b7K)\")\n         for v in k_def]\n    )\n    films = mo.ui.checkbox(value=False, label=\"Inclure les r\u00e9sistances superficielles (ISO 6946)\")\n    return conductivites, epaisseurs, films, noms\n\n\n@app.cell\ndef _(conductivites, epaisseurs, films, mo, noms):\n    mo.vstack(\n        [\n            mo.hstack(\n                [mo.md(f\"**{noms[i]}**\"), epaisseurs[i], conductivites[i]],\n                justify=\"start\", gap=2, align=\"center\",\n            )\n            for i in range(3)\n        ]\n        + [films]\n    )\n    return\n\n\n@app.cell\ndef _(conductivites, epaisseurs, films):\n    T_ext, T_int = -9.0, 21.0\n    # R\u00e9sistances superficielles conventionnelles, flux horizontal (ISO 6946)\n    R_se, R_si = (0.04, 0.13) if films.value else (0.0, 0.0)\n\n    L = [e / 1000 for e in epaisseurs.value]                 # m\n    k = [max(v, 1e-6) for v in conductivites.value]          # W/(m\u00b7K)\n    R = [Li / ki for Li, ki in zip(L, k)]                    # m\u00b2K/W\n    R_tot = R_se + sum(R) + R_si\n    U = 1 / R_tot\n    q = (T_int - T_ext) / R_tot                              # W/m\u00b2\n\n    # Temp\u00e9ratures aux interfaces, de l'ext\u00e9rieur vers l'int\u00e9rieur\n    T_faces = [T_ext + q * R_se]\n    for Ri in R:\n        T_faces.append(T_faces[-1] + q * Ri)\n    return L, R, R_se, R_si, R_tot, T_ext, T_faces, T_int, U, q\n\n\n@app.cell\ndef _(\n    L,\n    R,\n    R_se,\n    R_si,\n    R_tot,\n    Rectangle,\n    T_ext,\n    T_faces,\n    T_int,\n    U,\n    mo,\n    noms,\n    plt,\n    q,\n):\n    couleurs = [\"#C8745A\", \"#F2D16B\", \"#D9D9D9\"]\n    L_mm = [v * 1000 for v in L]\n    x = [0.0]\n    for v in L_mm:\n        x.append(x[-1] + v)\n    largeur = x[-1]\n    marge = 0.25 * largeur\n\n    fig, ax = plt.subplots(figsize=(8, 4.5))\n    ymin, ymax = T_ext - 4, T_int + 4\n\n    # Couches du mur, dessin\u00e9es \u00e0 l'\u00e9chelle\n    for i in range(3):\n        ax.add_patch(Rectangle((x[i], ymin), L_mm[i], ymax - ymin,\n                               facecolor=couleurs[i], edgecolor=\"black\", lw=1, alpha=0.6))\n        ax.text((x[i] + x[i + 1]) / 2, ymax - 1, f\"{i + 1}\",\n                ha=\"center\", va=\"top\", fontsize=11, weight=\"bold\")\n\n    # Air ext\u00e9rieur et int\u00e9rieur\n    ax.axvspan(-marge, 0, color=\"#BFD7EA\", alpha=0.5)\n    ax.axvspan(largeur, largeur + marge, color=\"#F6C9B5\", alpha=0.5)\n    ax.text(-marge / 2, ymin + 1, \"Ext\u00e9rieur\", ha=\"center\", fontsize=9)\n    ax.text(largeur + marge / 2, ymin + 1, \"Int\u00e9rieur\", ha=\"center\", fontsize=9)\n\n    # Profil de temp\u00e9rature\n    ax.plot([-marge, 0], [T_ext, T_faces[0]], color=\"black\", lw=2,\n            ls=\"--\" if R_se else \"-\")\n    ax.plot(x, T_faces, color=\"black\", lw=2.5, marker=\"o\")\n    ax.plot([largeur, largeur + marge], [T_faces[-1], T_int], color=\"black\", lw=2,\n            ls=\"--\" if R_si else \"-\")\n    # \u00c9tiquettes altern\u00e9es (dessous / dessus) pour \u00e9viter les chevauchements\n    for j, (xi, Ti) in enumerate(zip(x, T_faces)):\n        dessous = j % 2 == 0\n        ax.annotate(f\"{Ti:.1f} \u00b0C\", (xi, Ti), textcoords=\"offset points\",\n                    xytext=(5, -14 if dessous else 7), fontsize=9,\n                    ha=\"right\" if dessous else \"left\")\n\n    ax.set_xlim(-marge, largeur + marge)\n    ax.set_ylim(ymin, ymax)\n    ax.set_xlabel(\"Position dans le mur, de l'ext\u00e9rieur vers l'int\u00e9rieur (mm)\")\n    ax.set_ylabel(\"Temp\u00e9rature (\u00b0C)\")\n    ax.set_title(f\"q = {q:.1f} W/m\u00b2     U = {U:.3f} W/(m\u00b2\u00b7K)     R = {R_tot:.2f} m\u00b2\u00b7K/W\")\n    fig.tight_layout()\n\n    lignes = []\n    if R_se:\n        lignes.append(f\"| Surface ext. | \u2014 | \u2014 | {R_se:.3f} | {q * R_se:.1f} | {R_se / R_tot:.0%} |\")\n    for i in range(3):\n        lignes.append(\n            f\"| {noms[i]} | {L_mm[i]:.0f} | {L[i] / R[i]:.3f} | {R[i]:.3f} | \"\n            f\"{q * R[i]:.1f} | {R[i] / R_tot:.0%} |\"\n        )\n    if R_si:\n        lignes.append(f\"| Surface int. | \u2014 | \u2014 | {R_si:.3f} | {q * R_si:.1f} | {R_si / R_tot:.0%} |\")\n\n    tableau = mo.md(\n        \"| | L (mm) | k (W/m\u00b7K) | R (m\u00b2\u00b7K/W) | \u0394T (K) | Part de \u0394T |\\n\"\n        \"|---|---|---|---|---|---|\\n\"\n        + \"\\n\".join(lignes)\n        + f\"\\n| **Total** | **{sum(L_mm):.0f}** | | **{R_tot:.3f}** | **{T_int - T_ext:.1f}** | 100 % |\"\n    )\n\n    mo.vstack([fig, tableau])\n    return\n\n\n@app.cell\ndef _(mo):\n    mo.md(r\"\"\"\n    ---\n    **R\u00e9f\u00e9rences**\n\n    1. Bergman, T. L., Lavine, A. S., Incropera, F. P. et DeWitt, D. P. (2011).\n       *Fundamentals of Heat and Mass Transfer*, 7\u1d49 \u00e9d., Wiley, section 3.1\n       (paroi plane compos\u00e9e, analogie \u00e9lectrique).\n    2. ISO 6946:2017, *Composants et parois de b\u00e2timents \u2014 R\u00e9sistance thermique\n       et coefficient de transmission thermique \u2014 M\u00e9thodes de calcul*\n       ($R_{se}$ = 0,04 et $R_{si}$ = 0,13 m\u00b2\u00b7K/W, flux horizontal).\n    \"\"\")\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.25.1%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%20%20%20%20from%20matplotlib.patches%20import%20Rectangle%0A%0A%20%20%20%20return%20Rectangle%2C%20mo%2C%20plt%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Conduction%20%C3%A0%20travers%20un%20mur%20%C3%A0%20trois%20couches%0A%0A%20%20%20%20Le%20mur%20s%C3%A9pare%20l'ext%C3%A9rieur%20%C3%A0%20**%E2%88%929%20%C2%B0C**%20de%20l'int%C3%A9rieur%20%C3%A0%20**21%20%C2%B0C**%0A%20%20%20%20(%24%5CDelta%20T%24%20%3D%2030%20K).%20En%20r%C3%A9gime%20permanent%2C%20le%20m%C3%AAme%20flux%20de%20chaleur%20%24q%24%0A%20%20%20%20traverse%20chaque%20couche.%20Chaque%20couche%20oppose%20une%20r%C3%A9sistance%20thermique%0A%20%20%20%20proportionnelle%20%C3%A0%20son%20%C3%A9paisseur%20%24L%24%20et%20inversement%20proportionnelle%20%C3%A0%0A%20%20%20%20sa%20conductivit%C3%A9%20%24k%24%20%3A%0A%0A%20%20%20%20%24%24R_i%20%3D%20%5Cfrac%7BL_i%7D%7Bk_i%7D%2C%20%5Cqquad%0A%20%20%20%20%20%20R_%5Ctext%7Btot%7D%20%3D%20%5Csum_i%20R_i%2C%20%5Cqquad%0A%20%20%20%20%20%20q%20%3D%20%5Cfrac%7B%5CDelta%20T%7D%7BR_%5Ctext%7Btot%7D%7D%20%3D%20U%5C%2C%5CDelta%20T%24%24%0A%0A%20%20%20%20La%20chute%20de%20temp%C3%A9rature%20dans%20chaque%20couche%20est%20%24%5CDelta%20T_i%20%3D%20q%5C%2CR_i%24%20%3A%0A%20%20%20%20**la%20couche%20la%20plus%20r%C3%A9sistante%20%C2%AB%20prend%20%C2%BB%20la%20plus%20grande%20part%20de%20l'%C3%A9cart%0A%20%20%20%20de%20temp%C3%A9rature.**%0A%0A%20%20%20%20Modifiez%20l'%C3%A9paisseur%20(curseur)%20et%20la%20conductivit%C3%A9%20(case)%20de%20chaque%20couche.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20%23%20Valeurs%20par%20d%C3%A9faut%20%3A%20brique%2C%20isolant%2C%20gypse%0A%20%20%20%20noms%20%3D%20%5B%22Couche%201%20(ext.)%22%2C%20%22Couche%202%22%2C%20%22Couche%203%20(int.)%22%5D%0A%20%20%20%20e_def%20%3D%20%5B90%2C%20140%2C%2013%5D%20%20%20%20%20%20%20%20%20%20%23%20mm%0A%20%20%20%20k_def%20%3D%20%5B0.72%2C%200.040%2C%200.16%5D%20%20%20%20%23%20W%2F(m%C2%B7K)%0A%0A%20%20%20%20epaisseurs%20%3D%20mo.ui.array(%0A%20%20%20%20%20%20%20%20%5Bmo.ui.slider(1%2C%20300%2C%20step%3D1%2C%20value%3Dv%2C%20show_value%3DTrue%2C%20label%3D%22%C3%89paisseur%20(mm)%22)%0A%20%20%20%20%20%20%20%20%20for%20v%20in%20e_def%5D%0A%20%20%20%20)%0A%20%20%20%20conductivites%20%3D%20mo.ui.array(%0A%20%20%20%20%20%20%20%20%5Bmo.ui.number(start%3D0.005%2C%20stop%3D400%2C%20step%3D0.001%2C%20value%3Dv%2C%20label%3D%22k%20(W%2Fm%C2%B7K)%22)%0A%20%20%20%20%20%20%20%20%20for%20v%20in%20k_def%5D%0A%20%20%20%20)%0A%20%20%20%20films%20%3D%20mo.ui.checkbox(value%3DFalse%2C%20label%3D%22Inclure%20les%20r%C3%A9sistances%20superficielles%20(ISO%206946)%22)%0A%20%20%20%20return%20conductivites%2C%20epaisseurs%2C%20films%2C%20noms%0A%0A%0A%40app.cell%0Adef%20_(conductivites%2C%20epaisseurs%2C%20films%2C%20mo%2C%20noms)%3A%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.hstack(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bmo.md(f%22**%7Bnoms%5Bi%5D%7D**%22)%2C%20epaisseurs%5Bi%5D%2C%20conductivites%5Bi%5D%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20justify%3D%22start%22%2C%20gap%3D2%2C%20align%3D%22center%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20i%20in%20range(3)%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%2B%20%5Bfilms%5D%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(conductivites%2C%20epaisseurs%2C%20films)%3A%0A%20%20%20%20T_ext%2C%20T_int%20%3D%20-9.0%2C%2021.0%0A%20%20%20%20%23%20R%C3%A9sistances%20superficielles%20conventionnelles%2C%20flux%20horizontal%20(ISO%206946)%0A%20%20%20%20R_se%2C%20R_si%20%3D%20(0.04%2C%200.13)%20if%20films.value%20else%20(0.0%2C%200.0)%0A%0A%20%20%20%20L%20%3D%20%5Be%20%2F%201000%20for%20e%20in%20epaisseurs.value%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20m%0A%20%20%20%20k%20%3D%20%5Bmax(v%2C%201e-6)%20for%20v%20in%20conductivites.value%5D%20%20%20%20%20%20%20%20%20%20%23%20W%2F(m%C2%B7K)%0A%20%20%20%20R%20%3D%20%5BLi%20%2F%20ki%20for%20Li%2C%20ki%20in%20zip(L%2C%20k)%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20m%C2%B2K%2FW%0A%20%20%20%20R_tot%20%3D%20R_se%20%2B%20sum(R)%20%2B%20R_si%0A%20%20%20%20U%20%3D%201%20%2F%20R_tot%0A%20%20%20%20q%20%3D%20(T_int%20-%20T_ext)%20%2F%20R_tot%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20W%2Fm%C2%B2%0A%0A%20%20%20%20%23%20Temp%C3%A9ratures%20aux%20interfaces%2C%20de%20l'ext%C3%A9rieur%20vers%20l'int%C3%A9rieur%0A%20%20%20%20T_faces%20%3D%20%5BT_ext%20%2B%20q%20*%20R_se%5D%0A%20%20%20%20for%20Ri%20in%20R%3A%0A%20%20%20%20%20%20%20%20T_faces.append(T_faces%5B-1%5D%20%2B%20q%20*%20Ri)%0A%20%20%20%20return%20L%2C%20R%2C%20R_se%2C%20R_si%2C%20R_tot%2C%20T_ext%2C%20T_faces%2C%20T_int%2C%20U%2C%20q%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20L%2C%0A%20%20%20%20R%2C%0A%20%20%20%20R_se%2C%0A%20%20%20%20R_si%2C%0A%20%20%20%20R_tot%2C%0A%20%20%20%20Rectangle%2C%0A%20%20%20%20T_ext%2C%0A%20%20%20%20T_faces%2C%0A%20%20%20%20T_int%2C%0A%20%20%20%20U%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20noms%2C%0A%20%20%20%20plt%2C%0A%20%20%20%20q%2C%0A)%3A%0A%20%20%20%20couleurs%20%3D%20%5B%22%23C8745A%22%2C%20%22%23F2D16B%22%2C%20%22%23D9D9D9%22%5D%0A%20%20%20%20L_mm%20%3D%20%5Bv%20*%201000%20for%20v%20in%20L%5D%0A%20%20%20%20x%20%3D%20%5B0.0%5D%0A%20%20%20%20for%20v%20in%20L_mm%3A%0A%20%20%20%20%20%20%20%20x.append(x%5B-1%5D%20%2B%20v)%0A%20%20%20%20largeur%20%3D%20x%5B-1%5D%0A%20%20%20%20marge%20%3D%200.25%20*%20largeur%0A%0A%20%20%20%20fig%2C%20ax%20%3D%20plt.subplots(figsize%3D(8%2C%204.5))%0A%20%20%20%20ymin%2C%20ymax%20%3D%20T_ext%20-%204%2C%20T_int%20%2B%204%0A%0A%20%20%20%20%23%20Couches%20du%20mur%2C%20dessin%C3%A9es%20%C3%A0%20l'%C3%A9chelle%0A%20%20%20%20for%20i%20in%20range(3)%3A%0A%20%20%20%20%20%20%20%20ax.add_patch(Rectangle((x%5Bi%5D%2C%20ymin)%2C%20L_mm%5Bi%5D%2C%20ymax%20-%20ymin%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20facecolor%3Dcouleurs%5Bi%5D%2C%20edgecolor%3D%22black%22%2C%20lw%3D1%2C%20alpha%3D0.6))%0A%20%20%20%20%20%20%20%20ax.text((x%5Bi%5D%20%2B%20x%5Bi%20%2B%201%5D)%20%2F%202%2C%20ymax%20-%201%2C%20f%22%7Bi%20%2B%201%7D%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ha%3D%22center%22%2C%20va%3D%22top%22%2C%20fontsize%3D11%2C%20weight%3D%22bold%22)%0A%0A%20%20%20%20%23%20Air%20ext%C3%A9rieur%20et%20int%C3%A9rieur%0A%20%20%20%20ax.axvspan(-marge%2C%200%2C%20color%3D%22%23BFD7EA%22%2C%20alpha%3D0.5)%0A%20%20%20%20ax.axvspan(largeur%2C%20largeur%20%2B%20marge%2C%20color%3D%22%23F6C9B5%22%2C%20alpha%3D0.5)%0A%20%20%20%20ax.text(-marge%20%2F%202%2C%20ymin%20%2B%201%2C%20%22Ext%C3%A9rieur%22%2C%20ha%3D%22center%22%2C%20fontsize%3D9)%0A%20%20%20%20ax.text(largeur%20%2B%20marge%20%2F%202%2C%20ymin%20%2B%201%2C%20%22Int%C3%A9rieur%22%2C%20ha%3D%22center%22%2C%20fontsize%3D9)%0A%0A%20%20%20%20%23%20Profil%20de%20temp%C3%A9rature%0A%20%20%20%20ax.plot(%5B-marge%2C%200%5D%2C%20%5BT_ext%2C%20T_faces%5B0%5D%5D%2C%20color%3D%22black%22%2C%20lw%3D2%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20ls%3D%22--%22%20if%20R_se%20else%20%22-%22)%0A%20%20%20%20ax.plot(x%2C%20T_faces%2C%20color%3D%22black%22%2C%20lw%3D2.5%2C%20marker%3D%22o%22)%0A%20%20%20%20ax.plot(%5Blargeur%2C%20largeur%20%2B%20marge%5D%2C%20%5BT_faces%5B-1%5D%2C%20T_int%5D%2C%20color%3D%22black%22%2C%20lw%3D2%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20ls%3D%22--%22%20if%20R_si%20else%20%22-%22)%0A%20%20%20%20%23%20%C3%89tiquettes%20altern%C3%A9es%20(dessous%20%2F%20dessus)%20pour%20%C3%A9viter%20les%20chevauchements%0A%20%20%20%20for%20j%2C%20(xi%2C%20Ti)%20in%20enumerate(zip(x%2C%20T_faces))%3A%0A%20%20%20%20%20%20%20%20dessous%20%3D%20j%20%25%202%20%3D%3D%200%0A%20%20%20%20%20%20%20%20ax.annotate(f%22%7BTi%3A.1f%7D%20%C2%B0C%22%2C%20(xi%2C%20Ti)%2C%20textcoords%3D%22offset%20points%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xytext%3D(5%2C%20-14%20if%20dessous%20else%207)%2C%20fontsize%3D9%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ha%3D%22right%22%20if%20dessous%20else%20%22left%22)%0A%0A%20%20%20%20ax.set_xlim(-marge%2C%20largeur%20%2B%20marge)%0A%20%20%20%20ax.set_ylim(ymin%2C%20ymax)%0A%20%20%20%20ax.set_xlabel(%22Position%20dans%20le%20mur%2C%20de%20l'ext%C3%A9rieur%20vers%20l'int%C3%A9rieur%20(mm)%22)%0A%20%20%20%20ax.set_ylabel(%22Temp%C3%A9rature%20(%C2%B0C)%22)%0A%20%20%20%20ax.set_title(f%22q%20%3D%20%7Bq%3A.1f%7D%20W%2Fm%C2%B2%20%20%20%20%20U%20%3D%20%7BU%3A.3f%7D%20W%2F(m%C2%B2%C2%B7K)%20%20%20%20%20R%20%3D%20%7BR_tot%3A.2f%7D%20m%C2%B2%C2%B7K%2FW%22)%0A%20%20%20%20fig.tight_layout()%0A%0A%20%20%20%20lignes%20%3D%20%5B%5D%0A%20%20%20%20if%20R_se%3A%0A%20%20%20%20%20%20%20%20lignes.append(f%22%7C%20Surface%20ext.%20%7C%20%E2%80%94%20%7C%20%E2%80%94%20%7C%20%7BR_se%3A.3f%7D%20%7C%20%7Bq%20*%20R_se%3A.1f%7D%20%7C%20%7BR_se%20%2F%20R_tot%3A.0%25%7D%20%7C%22)%0A%20%20%20%20for%20i%20in%20range(3)%3A%0A%20%20%20%20%20%20%20%20lignes.append(%0A%20%20%20%20%20%20%20%20%20%20%20%20f%22%7C%20%7Bnoms%5Bi%5D%7D%20%7C%20%7BL_mm%5Bi%5D%3A.0f%7D%20%7C%20%7BL%5Bi%5D%20%2F%20R%5Bi%5D%3A.3f%7D%20%7C%20%7BR%5Bi%5D%3A.3f%7D%20%7C%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20f%22%7Bq%20*%20R%5Bi%5D%3A.1f%7D%20%7C%20%7BR%5Bi%5D%20%2F%20R_tot%3A.0%25%7D%20%7C%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20if%20R_si%3A%0A%20%20%20%20%20%20%20%20lignes.append(f%22%7C%20Surface%20int.%20%7C%20%E2%80%94%20%7C%20%E2%80%94%20%7C%20%7BR_si%3A.3f%7D%20%7C%20%7Bq%20*%20R_si%3A.1f%7D%20%7C%20%7BR_si%20%2F%20R_tot%3A.0%25%7D%20%7C%22)%0A%0A%20%20%20%20tableau%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20%22%7C%20%7C%20L%20(mm)%20%7C%20k%20(W%2Fm%C2%B7K)%20%7C%20R%20(m%C2%B2%C2%B7K%2FW)%20%7C%20%CE%94T%20(K)%20%7C%20Part%20de%20%CE%94T%20%7C%5Cn%22%0A%20%20%20%20%20%20%20%20%22%7C---%7C---%7C---%7C---%7C---%7C---%7C%5Cn%22%0A%20%20%20%20%20%20%20%20%2B%20%22%5Cn%22.join(lignes)%0A%20%20%20%20%20%20%20%20%2B%20f%22%5Cn%7C%20**Total**%20%7C%20**%7Bsum(L_mm)%3A.0f%7D**%20%7C%20%7C%20**%7BR_tot%3A.3f%7D**%20%7C%20**%7BT_int%20-%20T_ext%3A.1f%7D**%20%7C%20100%20%25%20%7C%22%0A%20%20%20%20)%0A%0A%20%20%20%20mo.vstack(%5Bfig%2C%20tableau%5D)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20---%0A%20%20%20%20**R%C3%A9f%C3%A9rences**%0A%0A%20%20%20%201.%20Bergman%2C%20T.%20L.%2C%20Lavine%2C%20A.%20S.%2C%20Incropera%2C%20F.%20P.%20et%20DeWitt%2C%20D.%20P.%20(2011).%0A%20%20%20%20%20%20%20*Fundamentals%20of%20Heat%20and%20Mass%20Transfer*%2C%207%E1%B5%89%20%C3%A9d.%2C%20Wiley%2C%20section%203.1%0A%20%20%20%20%20%20%20(paroi%20plane%20compos%C3%A9e%2C%20analogie%20%C3%A9lectrique).%0A%20%20%20%202.%20ISO%206946%3A2017%2C%20*Composants%20et%20parois%20de%20b%C3%A2timents%20%E2%80%94%20R%C3%A9sistance%20thermique%0A%20%20%20%20%20%20%20et%20coefficient%20de%20transmission%20thermique%20%E2%80%94%20M%C3%A9thodes%20de%20calcul*%0A%20%20%20%20%20%20%20(%24R_%7Bse%7D%24%20%3D%200%2C04%20et%20%24R_%7Bsi%7D%24%20%3D%200%2C13%20m%C2%B2%C2%B7K%2FW%2C%20flux%20horizontal).%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.25.1",
+            "serverToken": "unused",
+            "config": {"ai": {"allow_provider_config": true, "custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "code_lens": true, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "dark"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "medium"},
+            "layout": null,
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>
